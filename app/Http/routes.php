@@ -20,9 +20,7 @@ Route::get('/maps', 'mapsController@index')->middleware('avoidUser');
 
 Route::get('/credits', 'creditsController@index')->middleware('avoidUser');
 
-Route::get('/antecedentes','antecedentesController@index')->middleware('studentComplete');
-Route::get('/imss','imssController@index')->middleware('studentComplete');
-Route::get('/carta','cartaController@index')->middleware('studentComplete');
+Route::get('/formularioGeneral','cartaController@index')->middleware('studentComplete');
 
 Route::get('/forms', 'formsController@index')->middleware('studentComplete');
 Route::get('/lifeInsurance', 'lifeInsuranceController@index')->middleware('studentComplete');
@@ -57,6 +55,8 @@ Route::get('/admin/lists', 'adminController@lists');
 Route::post('/admin/newMessage', 'adminController@newMessage'); ///////////////////////////////
 
 Route::post('/admin/listsAll/pagination/{list}', 'adminController@pagination');
+
+Route::get('/admin/student/{id}', 'cartaController@administrador');
 
 Route::get('/admin/lists/{id}', 'adminController@show');
 Route::post('/admin/lists/{id}', 'adminController@edit');
